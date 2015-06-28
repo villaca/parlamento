@@ -1,0 +1,26 @@
+body { padding-top: 70px; }
+
+header ul{
+    margin-top: 8px;
+}
+header li{
+    display: inline-block;
+    float: left;
+    margin: 5px;
+}
+
+main{
+    height: 100%;
+}
+
+aside {
+    box-sizing: border-box;
+    height: inherit;
+    background-color: #0000C2;
+    min-height: 500px !important;
+    margin-right: 20px;
+}
+
+aside img{
+    width: 160px;
+}

@@ -1,6 +1,11 @@
-<?php namespace App\Http\Controllers;
+<?php
 
-class HomeController extends Controller {
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+
+class HomeController extends Controller
+{
 
 	/*
 	|--------------------------------------------------------------------------
@@ -18,9 +23,8 @@ class HomeController extends Controller {
 	 *
 	 * @return void
 	 */
-	public function __construct()
-	{
-		//$this->middleware('auth');
+	public function __construct(){
+		$this->middleware('guest');
 	}
 
 	/**
@@ -28,9 +32,12 @@ class HomeController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
-	{
+	public function index(){
 		return view('home');
 	}
+
+    public function config(){
+        return view('construction');
+    }
 
 }
