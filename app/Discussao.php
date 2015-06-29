@@ -12,4 +12,13 @@ class Discussao extends Model
     protected $table = 'discussoes';
     protected $primaryKey = 'iddiscussao';
     protected $dates = ['deleted_at'];
+
+    public function opinioes(){
+        return $this->hasMany('App\Opiniao','iddiscussao');
+    }
+
+    public function tema(){
+        return $this->belongsTo('App\Tema','idtema','idtema');
+    }
+
 }

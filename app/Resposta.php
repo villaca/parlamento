@@ -12,4 +12,12 @@ class Resposta extends Model
     protected $table = 'respostas';
     protected $primaryKey = 'idresposta';
     protected $dates = ['deleted_at'];
+
+    public function usuario(){
+        return $this->belongsTo('App\Usuario','idusuario','idusuario');
+    }
+
+    public function pergunta(){
+        return $this->belongsTo('App\Pergunta','idpergunta','idpergunta');
+    }
 }

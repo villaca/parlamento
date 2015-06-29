@@ -12,4 +12,8 @@ class Opcao extends Model
     protected $table = 'opcoes';
     protected $primaryKey = 'idopcao';
     protected $dates = ['deleted_at'];
+
+    public function pergunta(){
+        return $this->belongsTo('App\Pergunta','idpergunta','idpergunta');
+    }
 }

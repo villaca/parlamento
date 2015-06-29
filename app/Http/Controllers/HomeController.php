@@ -3,20 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Usuario;
 
 class HomeController extends Controller
 {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| This controller renders your application's "dashboard" for users that
-	| are authenticated. Of course, you are free to change or remove the
-	| controller as you wish. It is just here to get your app started!
-	|
-	*/
 
 	/**
 	 * Create a new controller instance.
@@ -27,13 +18,9 @@ class HomeController extends Controller
 		$this->middleware('guest');
 	}
 
-	/**
-	 * Show the application dashboard to the user.
-	 *
-	 * @return Response
-	 */
-	public function index(){
-		return view('home');
+	public function index($id){
+        $user = Usuario::findOrFail($id);
+        return view('home.home',['user' => $user]);
 	}
 
     public function config(){

@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Collection;
 
 class Tema extends Model
 {
@@ -16,13 +15,26 @@ class Tema extends Model
 
 
     public function admins(){
-        return $this->belongsToMany('App\Usuario','usuarios_tem_temas')->withPivot('admin')->withTimestamps();
+        return $this->belongsToMany('App\Usuario','usuarios_tem_temas','idtema','idusuario')->withPivot('admin')->withTimestamps();
     }
 
-    public function getAdmins(){
-        $users = $this->admins()->filter(function($user){
-            return $user->a
-        });
-        $users->get('admin = 0');
+    public function scopeAdmin($query){
+        return $query->where('admin', 1);
+    }
+
+    public function paredoes(){
+        return $this->hasMany('App\Paredao','idTema');
+    }
+
+    public function debates(){
+        return $this->hasMany('App\Debate','idTema');
+    }
+
+    public function discussoes(){
+        return $this->hasMany('App\Discussao','idTema');
+    }
+
+    public function perguntas(){
+        return $this->hasMany('App\Pergunta','idTema');
     }
 }

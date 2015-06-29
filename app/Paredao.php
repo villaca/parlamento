@@ -12,4 +12,9 @@ class Paredao extends Model
     protected $table = 'paredoes';
     protected $primaryKey = 'idparedao';
     protected $dates = ['deleted_at'];
+
+    public function tema(){
+        return $this->belongsTo('App\Tema','idtema','idtema');
+    }
+
 }

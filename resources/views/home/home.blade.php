@@ -5,7 +5,7 @@
 @section('content')
 
     <aside class="col-md-2">
-        <img  src="{{ asset('img/prfl/01.jpeg') }}" alt="Foto do perfil">
+        <img  src="{{ asset('img/prfl/'.$user->foto) }}" alt="Foto do perfil">
     </aside>
 
 
@@ -14,7 +14,7 @@
             <div class="panel-heading">Home</div>
 
             <div class="panel-body">
-                hello hello
+                hello hello, {{$user->nome}}
             </div>
         </div>
     </div>

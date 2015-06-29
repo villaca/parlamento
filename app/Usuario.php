@@ -15,7 +15,15 @@ class Usuario extends Model
 
 
     public function temas(){
-        return $this->belongsToMany('App\Tema','usuarios_tem_temas')->withPivot('admin')->withTimestamps();
+        return $this->belongsToMany('App\Tema','usuarios_tem_temas','idusuario','idtema')->withPivot('admin')->withTimestamps();
+    }
+
+    public function scopeAdmin($query){
+        return $query->where('admin', 1);
+    }
+
+    public function opinioes(){
+        return $this->belongsToMany('App\Opiniao','usuarios_tem_opinioes','idusuario','idopiniao');
     }
 
 }

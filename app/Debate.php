@@ -12,4 +12,9 @@ class Debate extends Model
     protected $table = 'debates';
     protected $primaryKey = 'iddebate';
     protected $dates = ['deleted_at'];
+
+    public function tema(){
+        return $this->belongsTo('App\Tema','idtema','idtema');
+    }
+
 }
