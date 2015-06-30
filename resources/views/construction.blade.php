@@ -4,4 +4,6 @@
 
 @section('content')
 
-    <img src="{{ asset('img/construction.jpg') }}" alt="Página em construção, volte em breve">
+    <img src="{{ asset('img/construction1.jpg') }}" alt="Página em construção, volte em breve" class="constructionWarning">
+
+@endsection

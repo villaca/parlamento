@@ -14,7 +14,7 @@ class Tema extends Model
     protected $dates = ['deleted_at'];
 
 
-    public function admins(){
+    public function usuarios(){
         return $this->belongsToMany('App\Usuario','usuarios_tem_temas','idtema','idusuario')->withPivot('admin')->withTimestamps();
     }
 

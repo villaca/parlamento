@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'LoginController@index');
 
 Route::get('home/{id}', 'HomeController@index');
+Route::get('temas', 'TemaController@index');
+Route::get('relevantes', 'HomeController@config');
+Route::get('recados', 'HomeController@config');
+Route::get('alertas', 'HomeController@config');
 Route::get('config', 'HomeController@config');

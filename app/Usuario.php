@@ -18,8 +18,8 @@ class Usuario extends Model
         return $this->belongsToMany('App\Tema','usuarios_tem_temas','idusuario','idtema')->withPivot('admin')->withTimestamps();
     }
 
-    public function scopeAdmin($query){
-        return $query->where('admin', 1);
+    public function admins(){
+        return $this->belongsToMany('App\Tema','usuarios_tem_temas','idusuario','idtema')->withPivot('admin')->withTimestamps()->where('admin', 1);
     }
 
     public function opinioes(){
